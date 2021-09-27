@@ -1,0 +1,23 @@
+@import "mixins";
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(10, calc(~'(100% - 370px) / 10')); // 100px for padding and 9*30=270px for grid gap
+  grid-template-rows: repeat(10, auto);
+  grid-gap: 30px;
+  padding: 50px;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+
+  & .loading-content {
+    font-size: 30pt;
+    color: #4d4d4d;
+  }
+}

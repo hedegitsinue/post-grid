@@ -1,0 +1,12 @@
+<ng-container *ngIf="postItems && postItems.length > 0; else loadingTemplate">
+  <div class="post-grid">
+    <app-post-item *ngFor="let postItem of postItems" [post]="postItem"></app-post-item>
+  </div>
+</ng-container>
+<ng-template #loadingTemplate>
+  <div class="loading-container">
+    <div class="loading-content">
+      Loading...
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,18 @@
+<div class="content">
+  <div class="post-item" (click)="togglePostUserId()">
+    <div class="post-id">
+      <ng-container *ngIf="SHOW === 'POST_ID'; else userIdTemplate">
+        Post ID: {{post.id}}
+      </ng-container>
+      <ng-template #userIdTemplate>
+        User ID: {{post.userId}}
+      </ng-template>
+    </div>
+    <div class="post-title">
+      {{post.title}}
+    </div>
+    <div class="post-description">
+      {{post.body}}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+.cross-browser(@property, @value) {
+    @{property}: @value;
+  -webkit-@{property}: @value;
+  -moz-@{property}: @value;
+  -o-@{property}: @value;
+  -ms-@{property}: @value;
+}
+
+.box-shadow(@type) when (@type = 'md') {
+  .cross-browser(box-shadow, ~"0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)");
+}
+
+.box-shadow(@type) when (@type = 'lg') {
+  .cross-browser(box-shadow, ~"0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)");
+}
+
+.box-shadow(@type) when (@type = 'xl') {
+  .cross-browser(box-shadow, ~"0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)");
+}
+
+.transition(...) {
+  .cross-browser(transition, @arguments);
+}
+
+
+.aspect-ratio (@width, @height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: (@height / @width) * 100%;
+  }
+  > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
